@@ -58,10 +58,10 @@ namespace Generic_CRUD
 
       modelBuilder.Entity<ModelName1>().HasData
       (
-          new() { id = 1, name = "Example 1" },
-          new() { id = 2, name = "Example 2" },
-          new() { id = 3, name = "Example 3" },
-          new() { id = 4, name = "Example 4" }
+          new() { id = 1, email = "Example 1" },
+          new() { id = 2, email = "Example 2" },
+          new() { id = 3, email = "Example 3" },
+          new() { id = 4, email = "Example 4" }
       );
     }
   }
