@@ -3,11 +3,9 @@ namespace Generic_CRUD.Repositories
   public class GenericRepository<T> where T : class, new()
   {
     protected readonly DbContext dbContext;
-    public readonly IHttpContextAccessor _httpContextAccessor;
-    public GenericRepository(DbContext dbContext, IHttpContextAccessor httpContextAccessor)
+    public GenericRepository(DbContext dbContext)
     {
       this.dbContext = dbContext;
-      _httpContextAccessor = httpContextAccessor;
     }
 
     public virtual List<T> GetAll()
@@ -66,16 +64,6 @@ namespace Generic_CRUD.Repositories
       dbContext.Set<T>().Remove(entity);
 #pragma warning restore CS8604 // Possible null reference argument.
       dbContext.SaveChanges();
-    }
-
-    public int GetUserId()
-    {
-      var result = -1;
-
-      if (_httpContextAccessor.HttpContext != null)
-        result = int.Parse(_httpContextAccessor.HttpContext.User.FindFirstValue("id"));
-
-      return result;
     }
   }
 }
