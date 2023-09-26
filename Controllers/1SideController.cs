@@ -1,14 +1,19 @@
-using Microsoft.AspNetCore.Mvc;
-
 namespace Generic_CRUD.Controllers
 {
   [Route("api/[controller]")]
   [ApiController]
   public class _1SideController : Controller
   {
-    public IActionResult Index()
+    private readonly _1SideRepository repository;
+
+    [HttpGet("get")]
+    public IActionResult GetFeedback(int id)
     {
-      return View();
+      return this.Run(() =>
+      {
+        return Ok(repository.GetByKey(id));
+      });
     }
+
   }
 }
