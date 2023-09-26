@@ -61,3 +61,8 @@ To start using this generic CRUD repository, follow these steps:
 4. Customize the repository to fit your specific database requirements.
 
 With this repository, you have a solid foundation for handling database operations in your .NET Core application. Feel free to adapt and extend it as needed for your project.
+
+## License
+
+This project is licensed under the [Creative Commons Attribution 4.0 International License (CC BY 4.0)](LICENSE.md).
+For more details, please see the [LICENSE.md](LICENSE.md) file.
