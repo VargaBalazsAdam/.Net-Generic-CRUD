@@ -8,7 +8,8 @@ global using Microsoft.EntityFrameworkCore.Metadata;
 global using System.ComponentModel.DataAnnotations;
 global using System.Security.Claims;
 global using Microsoft.AspNetCore.Mvc;
-
+global using System.Linq.Expressions;
+global using Generic_CRUD.Models.Requests;
 
 var builder = WebApplication.CreateBuilder(args);
 

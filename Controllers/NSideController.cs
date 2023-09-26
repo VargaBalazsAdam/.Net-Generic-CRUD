@@ -19,7 +19,7 @@ namespace Generic_CRUD.Controllers
     {
       return this.Run(() =>
       {
-        return Ok(repository.Insert(model));
+        return Ok(repository.InsertWithConnectedModel<ModelName1>(model, model.connectedModel.id));
       });
     }
 
@@ -28,7 +28,7 @@ namespace Generic_CRUD.Controllers
     {
       return this.Run(() =>
       {
-        return Ok(repository.GetByKey(id));
+        return Ok(repository.GetByKey(id, m => m.connectedModel));
       });
     }
 
@@ -37,16 +37,20 @@ namespace Generic_CRUD.Controllers
     {
       return this.Run(() =>
       {
-        return Ok(repository.GetAll());
+        return Ok(repository.GetAll(m => m.connectedModel));
       });
     }
 
     [HttpPatch("update")]
-    public IActionResult Update(ModelNameN model)
+    public IActionResult Update(ModelNameNRequest request)
     {
       return this.Run(() =>
       {
-        return Ok(repository.Update(model));
+        if (request.connectedModelId != null)
+        {
+          repository.UpdateConnectionById<ModelName1>(request.id, (int)request.connectedModelId);
+        }
+        return Ok(repository.Update(request));
       });
     }
 
