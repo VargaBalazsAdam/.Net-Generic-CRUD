@@ -2,6 +2,7 @@ global using Generic_CRUD;
 global using Generic_CRUD.Repositories;
 global using Generic_CRUD.Models;
 global using Generic_CRUD.Attributes;
+global using Generic_CRUD.Extensions;
 global using Microsoft.EntityFrameworkCore;
 global using Microsoft.EntityFrameworkCore.Metadata;
 global using System.ComponentModel.DataAnnotations;

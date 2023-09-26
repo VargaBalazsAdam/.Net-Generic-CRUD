@@ -1,5 +1,3 @@
-using Microsoft.AspNetCore.Http;
-
 namespace Generic_CRUD.Repositories
 {
   public class NSideRepository : GenericRepository<ModelNameN>
